@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "agentStop": [
+      {
+        "type": "command",
+        "bash": "node .github/hooks/run-tests.cjs",
+        "command": "node .github/hooks/run-tests.cjs",
+        "cwd": ".",
+        "timeoutSec": 130
+      }
+    ]
+  }
+}

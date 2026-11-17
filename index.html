@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4f7f3">
+    <title>Money2bar | Income &amp; Expenses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="#data" aria-label="Money2bar home">
+                <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span>money<span class="brand-accent">2</span>bar</span>
+            </a>
+            <p class="topbar-note">Your year, in balance.</p>
+        </header>
+
+        <section class="page-heading" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">PERSONAL FINANCE CHART.</p>
+                <h1 id="page-title">Income &amp; expenses</h1>
+            </div>
+            <div class="year-mark" aria-label="Twelve month overview">
+                <span>12</span>
+                <span>MONTHS</span>
+            </div>
+        </section>
+
+        <section class="summary" aria-label="Yearly totals" aria-live="polite">
+            <div class="summary-item summary-income">
+                <span class="summary-label"><span class="legend-dot"></span>Total income</span>
+                <strong id="total-income">₹0</strong>
+            </div>
+            <div class="summary-item summary-expense">
+                <span class="summary-label"><span class="legend-dot"></span>Total expenses</span>
+                <strong id="total-expenses">₹0</strong>
+            </div>
+            <div class="summary-item summary-net">
+                <span class="summary-label">Net balance</span>
+                <strong id="net-balance">₹0</strong>
+            </div>
+        </section>
+
+        <form class="username-form" id="username-form">
+            <label for="username">Username (at least 4 characters)</label>
+            <input class="username-input" id="username" name="username" type="text" minlength="4" required autocomplete="username">
+            <button class="username-submit" type="submit">Submit</button>
+            <p class="username-status" id="username-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <nav class="tab-list" role="tablist" aria-label="Dashboard views">
+            <button class="tab-button is-active" id="data-tab" type="button" role="tab" aria-selected="true" aria-controls="data-panel" tabindex="0">DATA</button>
+            <button class="tab-button" id="chart-tab" type="button" role="tab" aria-selected="false" aria-controls="chart-panel" tabindex="-1">CHART</button>
+        </nav>
+
+        <section class="tab-panel" id="data-panel" role="tabpanel" aria-labelledby="data-tab">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">JANUARY — DECEMBER</p>
+                    <h2>Monthly breakdown</h2>
+                </div>
+                <span class="currency-note">All amounts in INR <span aria-hidden="true">₹</span></span>
+            </div>
+
+            <div class="data-table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Month</th>
+                            <th scope="col" class="income-heading">Income <span>(₹)</span></th>
+                            <th scope="col" class="expense-heading">Expenses <span>(₹)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">January</th><td><label class="sr-only" for="income-january">January income in INR</label><input id="income-january" data-month="january" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-january">January expenses in INR</label><input id="expenses-january" data-month="january" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">February</th><td><label class="sr-only" for="income-february">February income in INR</label><input id="income-february" data-month="february" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-february">February expenses in INR</label><input id="expenses-february" data-month="february" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">March</th><td><label class="sr-only" for="income-march">March income in INR</label><input id="income-march" data-month="march" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-march">March expenses in INR</label><input id="expenses-march" data-month="march" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">April</th><td><label class="sr-only" for="income-april">April income in INR</label><input id="income-april" data-month="april" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-april">April expenses in INR</label><input id="expenses-april" data-month="april" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">May</th><td><label class="sr-only" for="income-may">May income in INR</label><input id="income-may" data-month="may" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-may">May expenses in INR</label><input id="expenses-may" data-month="may" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">June</th><td><label class="sr-only" for="income-june">June income in INR</label><input id="income-june" data-month="june" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-june">June expenses in INR</label><input id="expenses-june" data-month="june" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">July</th><td><label class="sr-only" for="income-july">July income in INR</label><input id="income-july" data-month="july" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-july">July expenses in INR</label><input id="expenses-july" data-month="july" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">August</th><td><label class="sr-only" for="income-august">August income in INR</label><input id="income-august" data-month="august" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-august">August expenses in INR</label><input id="expenses-august" data-month="august" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">September</th><td><label class="sr-only" for="income-september">September income in INR</label><input id="income-september" data-month="september" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-september">September expenses in INR</label><input id="expenses-september" data-month="september" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">October</th><td><label class="sr-only" for="income-october">October income in INR</label><input id="income-october" data-month="october" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-october">October expenses in INR</label><input id="expenses-october" data-month="october" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">November</th><td><label class="sr-only" for="income-november">November income in INR</label><input id="income-november" data-month="november" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-november">November expenses in INR</label><input id="expenses-november" data-month="november" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                        <tr><th scope="row">December</th><td><label class="sr-only" for="income-december">December income in INR</label><input id="income-december" data-month="december" data-kind="income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td><td><label class="sr-only" for="expenses-december">December expenses in INR</label><input id="expenses-december" data-month="december" data-kind="expenses" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0" autocomplete="off"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="save-note"><span class="save-indicator" aria-hidden="true"></span>Changes save automatically on this device.</p>
+        </section>
+
+        <section class="tab-panel" id="chart-panel" role="tabpanel" aria-labelledby="chart-tab" hidden>
+            <div class="section-heading chart-heading">
+                <div>
+                    <p class="eyebrow">MONTH BY MONTH</p>
+                    <h2>Income vs. expenses</h2>
+                </div>
+                <div class="chart-legend" aria-label="Chart series">
+                    <span><i class="legend-dot legend-income"></i>Income</span>
+                    <span><i class="legend-dot legend-expense"></i>Expenses</span>
+                </div>
+            </div>
+            <div class="chart-download-row">
+                <button class="download-button" id="download-chart" type="button" disabled>
+                    <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none">
+                        <path d="M8 2.5v7m0 0 2.5-2.5M8 9.5 5.5 7M3 11v2h10v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>Download PNG</span>
+                </button>
+            </div>
+            <div class="chart-wrap">
+                <canvas id="monthly-chart" role="img" aria-label="Grouped bar chart comparing income and expenses for each month"></canvas>
+                <p id="chart-empty" class="chart-empty" hidden>Add monthly values in DATA to see your comparison.</p>
+                <p id="chart-unavailable" class="chart-empty" hidden>The chart could not load. Check your internet connection and refresh.</p>
+            </div>
+        </section>
+
+        <footer class="app-footer"><span>Money2bar</span><span>Private to this browser</span></footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
